@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Combo Brutal — Sem Isso Sem Vendas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #E02020;
+      --red-dark: #B01818;
+      --red-glow: rgba(224,32,32,0.18);
+      --bg: #0a0a0a;
+      --bg2: #111111;
+      --bg3: #181818;
+      --border: rgba(255,255,255,0.07);
+      --border-red: rgba(224,32,32,0.3);
+      --text: #f0f0f0;
+      --muted: #888;
+      --muted2: #555;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 72px 0; }
+
+    /* ─── TOPO — ANIVERSÁRIO ─────────────────── */
+    .topbar {
+      background: var(--red);
+      text-align: center;
+      padding: 10px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ─── HERO ───────────────────────────────── */
+    .hero {
+      padding: 68px 0 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, var(--red-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--border-red);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 12vw, 104px);
+      line-height: 0.92;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 .line-red { color: var(--red); display: block; }
+    .hero h1 .line-white { display: block; }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 24px auto 0;
+      line-height: 1.65;
+    }
+
+    .hero-visual {
+      margin-top: 34px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.5), 0 0 70px rgba(224,32,32,0.16);
+    }
+
+    /* ─── TIMER ───────────────────────────────── */
+    .timer-wrap {
+      padding: 28px 0 8px;
+    }
+
+    .timer-inner {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+
+    .timer-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .timer-digits {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .timer-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 72px;
+    }
+
+    .timer-block .num {
+      font-family: var(--font-display);
+      font-size: 72px;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .timer-block .lab {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-top: 4px;
+    }
+
+    .timer-sep {
+      font-family: var(--font-display);
+      font-size: 60px;
+      color: var(--muted2);
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .timer-note {
+      font-size: 12px;
+      color: var(--muted2);
+      margin-top: 18px;
+    }
+
+    /* ─── SEÇÃO: DOR ─────────────────────────── */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 24px;
+    }
+
+    .dor h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.05;
+      margin-bottom: 32px;
+    }
+
+    .dor-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .dor-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+
+    .dor-item .icon {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      color: var(--red);
+    }
+
+    .dor-item p {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* ─── SEÇÃO: CURSOS ──────────────────────── */
+    .cursos { background: var(--bg); }
+
+    .cursos h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 54px);
+      line-height: 1.05;
+      margin-bottom: 40px;
+    }
+
+    .cursos-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .curso-row {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg2);
+      min-height: 244px;
+    }
+
+    .curso-row + .curso-row { margin-top: 8px; }
+
+    .curso-info {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .curso-num {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+
+    .curso-info h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .curso-info h3 span { color: var(--red); }
+
+    .curso-info p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .curso-img {
+      position: relative;
+      overflow: hidden;
+      background: #080808;
+    }
+
+    .curso-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-left: 1px solid var(--border);
+    }
+
+    .curso-preco-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      text-align: right;
+    }
+
+    .curso-preco-tag .de {
+      font-size: 10px;
+      color: var(--muted2);
+      text-decoration: line-through;
+    }
+
+    .curso-preco-tag .por {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ─── SEÇÃO: BÔNUS ───────────────────────── */
+    .bonus { background: var(--bg); }
+
+    .bonus-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .bonus-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 54px);
+      line-height: 1;
+    }
+
+    .bonus-tag {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--red);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .bonus-card {
+      background: var(--bg2);
+      border: 1px solid var(--border-red);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 240px;
+    }
+
+    .bonus-body {
+      padding: 32px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .bonus-body .who {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .bonus-body h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.05;
+    }
+
+    .bonus-body h3 span { color: var(--red); }
+
+    .bonus-body p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .bonus-valor {
+      font-size: 12px;
+      color: var(--muted2);
+      margin-top: 4px;
+    }
+
+    .bonus-valor span {
+      color: var(--red);
+      font-weight: 500;
+    }
+
+    .bonus-img {
+      position: relative;
+      min-height: 320px;
+      background: #080808;
+    }
+
+    .bonus-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-left: 1px solid var(--border-red);
+    }
+
+    /* ─── SEÇÃO: EMPILHAMENTO DE VALOR ───────── */
+    .valor {
+      padding: 36px 0 80px;
+    }
+
+    .valor-box {
+      background:
+        linear-gradient(145deg, rgba(224,32,32,0.12), transparent 44%),
+        var(--bg2);
+      border: 1px solid var(--border-red);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .valor-head {
+      padding: 34px 36px 26px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .valor-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 58px);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .valor-head p {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .valor-stack {
+      padding: 6px 36px 0;
+    }
+
+    .valor-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      color: #d5d5d5;
+      font-size: 14px;
+    }
+
+    .valor-row strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .valor-row span:last-child {
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .valor-total {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      padding: 30px 36px 34px;
+    }
+
+    .valor-anchor {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .valor-anchor .label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+
+    .valor-anchor .de {
+      font-family: var(--font-display);
+      font-size: 52px;
+      line-height: 1;
+      color: var(--muted);
+      text-decoration: line-through;
+      text-decoration-thickness: 3px;
+      text-decoration-color: var(--red);
+    }
+
+    .valor-price {
+      text-align: right;
+    }
+
+    .valor-price .tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .valor-price .por {
+      font-family: var(--font-display);
+      font-size: 92px;
+      line-height: 0.9;
+      color: #fff;
+    }
+
+    .valor-price .por span {
+      color: var(--red);
+    }
+
+    .valor-save {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .valor-save-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      background: rgba(0,0,0,0.22);
+    }
+
+    .valor-save-item .num {
+      font-family: var(--font-display);
+      font-size: 34px;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .valor-save-item .txt {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ─── SEÇÃO: OFERTA ──────────────────────── */
+    .oferta {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .oferta-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 56px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oferta-box::before {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, var(--red-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .oferta-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .oferta-de {
+      font-size: 14px;
+      color: var(--muted2);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .oferta-por {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 14vw, 120px);
+      color: #fff;
+      line-height: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .oferta-por span { color: var(--red); }
+
+    .oferta-parcela {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 500;
+      padding: 18px 48px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.12s;
+      letter-spacing: 0.01em;
+    }
+
+    .cta-btn:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .cta-btn:active { transform: scale(0.98); }
+
+    .oferta-aviso {
+      font-size: 12px;
+      color: var(--muted2);
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    /* ─── URGÊNCIA FINAL ─────────────────────── */
+    .urgencia {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 80px;
+      text-align: center;
+    }
+
+    .urgencia p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .urgencia strong { color: var(--text); font-weight: 500; }
+
+    /* ─── RODAPÉ ──────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted2);
+      line-height: 1.7;
+    }
+
+    /* ─── RESPONSIVO ─────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 0 18px; }
+      section { padding: 56px 0; }
+      .topbar { font-size: 11px; padding: 9px 16px; }
+      .hero { padding: 54px 0 48px; }
+      .hero-eyebrow { font-size: 10px; line-height: 1.4; }
+      .hero-sub { font-size: 15px; }
+      .hero-visual { margin-top: 28px; }
+      .hero-visual img { border-radius: 14px; }
+      .curso-row { grid-template-columns: 1fr; }
+      .curso-img {
+        min-height: 300px;
+        order: -1;
+      }
+      .curso-img img {
+        border-left: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .curso-info { padding: 22px 22px 24px; }
+      .bonus-card { grid-template-columns: 1fr; }
+      .bonus-img {
+        min-height: 360px;
+        order: -1;
+      }
+      .bonus-img img {
+        border-left: none;
+        border-bottom: 1px solid var(--border-red);
+      }
+      .bonus-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .valor { padding: 18px 0 56px; }
+      .valor-head,
+      .valor-stack,
+      .valor-total { padding-left: 22px; padding-right: 22px; }
+      .valor-total { grid-template-columns: 1fr; gap: 22px; }
+      .valor-price { text-align: left; }
+      .valor-price .por { font-size: 78px; }
+      .valor-save { grid-template-columns: 1fr; }
+      .valor-row { font-size: 13px; }
+      .oferta-box { padding: 40px 24px; }
+      .timer-block .num { font-size: 52px; }
+      .timer-block { min-width: 56px; }
+      .timer-digits { gap: 4px; }
+      .timer-sep { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  BARRA TOPO — ANIVERSÁRIO    ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <div class="topbar">
+    🎯 Sem Isso Sem Vendas completa 7 anos — condição única por 24 horas
+  </div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  HERO                        ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Oferta revelada às 15h — válida até 15h de amanhã</div>
+
+      <h1>
+        <span class="line-red">COMBO</span>
+        <span class="line-white">BRUTAL</span>
+      </h1>
+
+      <p class="hero-sub">
+        3 treinamentos completos da Universidade SISV por um preço que nunca aconteceu antes — e que não se repetirá.
+      </p>
+
+      <!-- MOCKUP 1: Imagem principal / banner do combo -->
+      <div class="hero-visual">
+        <img src="assets/combo-brutal-hero.png" alt="Combo Brutal com mockups dos treinamentos Fechamento Brutal, Persuasão Brutal e Metas Comerciais" />
+      </div>
+
+      <!-- TIMER -->
+      <div class="timer-wrap">
+        <div class="timer-inner">
+          <div class="timer-label">Esta oferta encerra em</div>
+          <div class="timer-digits">
+            <div class="timer-block">
+              <span class="num" id="t-h">24</span>
+              <span class="lab">horas</span>
+            </div>
+            <div class="timer-sep">:</div>
+            <div class="timer-block">
+              <span class="num" id="t-m">00</span>
+              <span class="lab">min</span>
+            </div>
+            <div class="timer-sep">:</div>
+            <div class="timer-block">
+              <span class="num" id="t-s">00</span>
+              <span class="lab">seg</span>
+            </div>
+          </div>
+          <div class="timer-note">Oferta válida das 15h do dia 04/05 até 15h do dia 05/05</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  SEÇÃO: DOR                  ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="dor" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-label">O problema real</div>
+      <h2>Resultados inconsistentes<br/>não são azar. São falta de método.</h2>
+
+      <div class="dor-items">
+        <div class="dor-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <p>Você fecha algumas vendas, mas nunca sabe se o próximo mês vai ser bom ou ruim. Os resultados não se repetem.</p>
+        </div>
+        <div class="dor-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <p>Na hora de fechar, o cliente desaparece. Você sente que faltou algo — mas não sabe o quê.</p>
+        </div>
+        <div class="dor-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <p>Suas metas existem no papel, mas na prática não guiam nada. Você bate — ou não bate — quase por acidente.</p>
+        </div>
+        <div class="dor-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <p>Fechar, persuadir e gerir metas são habilidades separadas. Treinar só uma não resolve. É preciso dominar as três.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  SEÇÃO: 3 CURSOS             ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="cursos">
+    <div class="container">
+      <div class="section-label">O que você leva</div>
+      <h2>Três treinamentos.<br/>Um sistema completo.</h2>
+
+      <div class="cursos-stack">
+
+        <!-- CURSO 1 -->
+        <div class="curso-row">
+          <div class="curso-info">
+            <span class="curso-num">Treinamento 01</span>
+            <h3>Fechamento <span>Brutal</span> 2.0</h3>
+            <p>Etapas da venda, psicologia do cliente, método do vendedor brutal e técnicas de fechamento. O curso mais completo sobre como fechar de forma consistente.</p>
+          </div>
+          <div class="curso-img">
+            <!-- MOCKUP 2: Capa / mockup do Fechamento Brutal -->
+            <img src="assets/curso-fechamento-brutal.png" alt="Mockup do treinamento Fechamento Brutal 2.0" />
+            <div class="curso-preco-tag">
+              <div class="de">R$ 497</div>
+              <div class="por">incluso</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURSO 2 -->
+        <div class="curso-row">
+          <div class="curso-info">
+            <span class="curso-num">Treinamento 02</span>
+            <h3>Persuasão <span>Brutal</span></h3>
+            <p>Gatilhos mentais, os pilares da persuasão, como o cérebro toma decisões e como persuadir seu cliente sem parecer que está forçando.</p>
+          </div>
+          <div class="curso-img">
+            <!-- MOCKUP 3: Capa / mockup da Persuasão Brutal -->
+            <img src="assets/curso-persuasao-brutal.png" alt="Capa do treinamento Persuasão Brutal" />
+            <div class="curso-preco-tag">
+              <div class="de">R$ 397</div>
+              <div class="por">incluso</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURSO 3 -->
+        <div class="curso-row">
+          <div class="curso-info">
+            <span class="curso-num">Treinamento 03</span>
+            <h3>Metas <span>Comerciais</span></h3>
+            <p>KPIs e indicadores, atividades geradoras de vendas, manutenção de base e as 3 metas comerciais que todo vendedor e gestor precisa dominar.</p>
+          </div>
+          <div class="curso-img">
+            <!-- MOCKUP 4: Capa / mockup das Metas Comerciais -->
+            <img src="assets/curso-metas-comerciais.png" alt="Capa do treinamento Metas Comerciais" />
+            <div class="curso-preco-tag">
+              <div class="de">R$ 197</div>
+              <div class="por">incluso</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  SEÇÃO: BÔNUS                ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="bonus">
+    <div class="container">
+      <div class="section-label">Bônus exclusivo</div>
+      <div class="bonus-header">
+        <h2>Só para quem comprar agora</h2>
+        <span class="bonus-tag">Grátis</span>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-body">
+          <span class="who">Com Caio Igreja — Head de Marketing SISV</span>
+          <h3>A Nova Era da<br/><span>Gestão de Tráfego</span></h3>
+          <p>Masterclass exclusiva com atualização completa sobre inteligência artificial aplicada ao Meta Ads. O que mudou, o que está mudando e o que você precisa saber agora.</p>
+          <div class="bonus-valor">Valor: <span>R$ 197</span> — incluso no Combo Brutal</div>
+        </div>
+        <div class="bonus-img">
+          <!-- MOCKUP 5: Foto ou arte do Caio Igreja / masterclass -->
+          <img src="assets/bonus-trafego-ai.png" alt="Visual da masterclass A Nova Era da Gestão de Tráfego" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  SEÇÃO: EMPILHAMENTO VALOR   ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="valor">
+    <div class="container">
+      <div class="section-label">Empilhamento de valor</div>
+      <div class="valor-box">
+        <div class="valor-head">
+          <h2>O desconto fica brutal quando você vê o pacote inteiro.</h2>
+          <p>Você não está comprando uma aula solta. Está levando fechamento, persuasão, metas comerciais e uma masterclass atualizada de tráfego em uma única condição.</p>
+        </div>
+
+        <div class="valor-stack">
+          <div class="valor-row">
+            <strong>Fechamento Brutal 2.0</strong>
+            <span>R$ 497</span>
+          </div>
+          <div class="valor-row">
+            <strong>Persuasão Brutal</strong>
+            <span>R$ 397</span>
+          </div>
+          <div class="valor-row">
+            <strong>Metas Comerciais</strong>
+            <span>R$ 197</span>
+          </div>
+          <div class="valor-row">
+            <strong>Bônus: A Nova Era da Gestão de Tráfego</strong>
+            <span>R$ 197</span>
+          </div>
+        </div>
+
+        <div class="valor-total">
+          <div class="valor-anchor">
+            <span class="label">Valor total</span>
+            <span class="de">R$ 1.288</span>
+          </div>
+
+          <div class="valor-price">
+            <span class="tag">Oferta de aniversário</span>
+            <div class="por"><span>R$</span> 147</div>
+          </div>
+
+          <div class="valor-save">
+            <div class="valor-save-item">
+              <div class="num">R$ 1.141</div>
+              <div class="txt">de economia comprando hoje</div>
+            </div>
+            <div class="valor-save-item">
+              <div class="num">89% OFF</div>
+              <div class="txt">sobre o valor total do pacote</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  SEÇÃO: OFERTA + CTA         ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="oferta">
+    <div class="container">
+      <div class="oferta-box">
+        <div class="oferta-eyebrow">Condição especial de aniversário — 7 anos SISV</div>
+
+        <div class="oferta-de">Valor total: R$ 1.288</div>
+        <div class="oferta-por"><span>R$</span> 147</div>
+        <div class="oferta-parcela">pagamento único · acesso imediato</div>
+
+        <a href="https://pay.kiwify.com.br/t8TlXN3" class="cta-btn">Quero o Combo Brutal agora</a>
+
+        <div class="oferta-aviso">
+          Válido das 15h de 04/05 até 15h de 05/05.<br/>
+          Após esse prazo, a oferta sai do ar e não se repete.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  URGÊNCIA FINAL              ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <div class="urgencia">
+    <div class="container">
+      <p>
+        <strong>Esta condição existe uma única vez.</strong><br/>
+        Sem extensão de prazo, sem segunda chance. Quando o timer zerar, os cursos voltam ao preço normal — e o Combo Brutal deixa de existir.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║  RODAPÉ                      ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <footer>
+    <p>Sem Isso Sem Vendas · 7 anos formando vendedores e gestores de alta performance.</p>
+    <p style="margin-top:6px;">Dúvidas? Fale com o suporte.</p>
+  </footer>
+
+
+  <!-- ─── TIMER SCRIPT ─── -->
+  <script>
+    const endTime = new Date('2026-05-05T15:00:00-03:00');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateTimer() {
+      const diff = endTime - Date.now();
+      if (diff <= 0) {
+        ['t-h','t-m','t-s'].forEach(id => document.getElementById(id).textContent = '00');
+        return;
+      }
+      document.getElementById('t-h').textContent = pad(Math.floor(diff / 3600000));
+      document.getElementById('t-m').textContent = pad(Math.floor((diff % 3600000) / 60000));
+      document.getElementById('t-s').textContent = pad(Math.floor((diff % 60000) / 1000));
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+
+</body>
+</html>
