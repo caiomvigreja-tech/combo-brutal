@@ -9,19 +9,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --red: #E02020;
-      --red-dark: #B01818;
-      --red-glow: rgba(224,32,32,0.18);
+      --brand: #ff6b00;
+      --brand-dark: #e66000;
+      --brand-glow: rgba(255, 107, 0, 0.18);
+      --green: #00b85c;
+      --green-dark: #00a352;
       --bg: #0a0a0a;
       --bg2: #111111;
       --bg3: #181818;
-      --border: rgba(255,255,255,0.07);
-      --border-red: rgba(224,32,32,0.3);
+      --border: rgba(255, 255, 255, 0.07);
+      --border-brand: rgba(255, 107, 0, 0.3);
       --text: #f0f0f0;
       --muted: #888;
       --muted2: #555;
       --font-display: 'Bebas Neue', sans-serif;
       --font-body: 'DM Sans', sans-serif;
+    }
+
+    .theme-light {
+      --bg: #ffffff;
+      --bg2: #f8f9fa;
+      --bg3: #f1f3f5;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-brand: rgba(255, 107, 0, 0.25);
+      --text: #1a1a1a;
+      --muted: #555555;
+      --muted2: #888888;
+      background: var(--bg);
+      color: var(--text);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,7 +64,8 @@
 
     /* ─── TOPO — ANIVERSÁRIO ─────────────────── */
     .topbar {
-      background: var(--red);
+      background: var(--brand);
+      color: #ffffff;
       text-align: center;
       padding: 10px 24px;
       font-size: 13px;
@@ -74,7 +90,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 400px;
-      background: radial-gradient(ellipse at center, var(--red-glow) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, var(--brand-glow) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -86,8 +102,8 @@
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--red);
-      border: 1px solid var(--border-red);
+      color: var(--brand);
+      border: 1px solid var(--border-brand);
       border-radius: 100px;
       padding: 6px 16px;
       margin-bottom: 28px;
@@ -98,7 +114,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--red);
+      background: var(--brand);
       animation: pulse 1.5s ease-in-out infinite;
     }
 
@@ -115,7 +131,7 @@
       margin-bottom: 8px;
     }
 
-    .hero h1 .line-red { color: var(--red); display: block; }
+    .hero h1 .line-brand { color: var(--brand); display: block; }
     .hero h1 .line-white { display: block; }
 
     .hero-sub {
@@ -138,7 +154,7 @@
       height: auto;
       border-radius: 20px;
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 28px 80px rgba(0,0,0,0.5), 0 0 70px rgba(224,32,32,0.16);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.5), 0 0 70px rgba(255,107,0,0.16);
     }
 
     /* ─── TIMER ───────────────────────────────── */
@@ -179,7 +195,7 @@
     .timer-block .num {
       font-family: var(--font-display);
       font-size: 72px;
-      color: var(--red);
+      color: var(--brand);
       line-height: 1;
     }
 
@@ -210,7 +226,7 @@
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--brand);
       margin-bottom: 24px;
     }
 
@@ -242,12 +258,12 @@
       height: 20px;
       margin-top: 2px;
       flex-shrink: 0;
-      color: var(--red);
+      color: var(--brand);
     }
 
     .dor-item p {
       font-size: 15px;
-      color: #ccc;
+      color: var(--muted);
       line-height: 1.6;
     }
 
@@ -300,7 +316,7 @@
       line-height: 1;
     }
 
-    .curso-info h3 span { color: var(--red); }
+    .curso-info h3 span { color: var(--brand); }
 
     .curso-info p {
       font-size: 13px;
@@ -311,7 +327,7 @@
     .curso-img {
       position: relative;
       overflow: hidden;
-      background: #080808;
+      background: var(--bg3);
     }
 
     .curso-img img {
@@ -365,15 +381,15 @@
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      background: var(--red);
-      color: #fff;
+      background: var(--brand);
+      color: var(--text);
       padding: 4px 10px;
       border-radius: 4px;
     }
 
     .bonus-card {
       background: var(--bg2);
-      border: 1px solid var(--border-red);
+      border: 1px solid var(--border-brand);
       border-radius: 16px;
       overflow: hidden;
       display: grid;
@@ -401,7 +417,7 @@
       line-height: 1.05;
     }
 
-    .bonus-body h3 span { color: var(--red); }
+    .bonus-body h3 span { color: var(--brand); }
 
     .bonus-body p {
       font-size: 14px;
@@ -416,14 +432,14 @@
     }
 
     .bonus-valor span {
-      color: var(--red);
+      color: var(--brand);
       font-weight: 500;
     }
 
     .bonus-img {
       position: relative;
       min-height: 320px;
-      background: #080808;
+      background: var(--bg3);
     }
 
     .bonus-img img {
@@ -432,7 +448,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      border-left: 1px solid var(--border-red);
+      border-left: 1px solid var(--border-brand);
     }
 
     /* ─── SEÇÃO: EMPILHAMENTO DE VALOR ───────── */
@@ -442,9 +458,9 @@
 
     .valor-box {
       background:
-        linear-gradient(145deg, rgba(224,32,32,0.12), transparent 44%),
+        linear-gradient(145deg, rgba(255,107,0,0.12), transparent 44%),
         var(--bg2);
-      border: 1px solid var(--border-red);
+      border: 1px solid var(--border-brand);
       border-radius: 20px;
       overflow: hidden;
     }
@@ -478,7 +494,7 @@
       gap: 18px;
       padding: 16px 0;
       border-bottom: 1px solid var(--border);
-      color: #d5d5d5;
+      color: var(--muted);
       font-size: 14px;
     }
 
@@ -520,7 +536,7 @@
       color: var(--muted);
       text-decoration: line-through;
       text-decoration-thickness: 3px;
-      text-decoration-color: var(--red);
+      text-decoration-color: var(--brand);
     }
 
     .valor-price {
@@ -529,8 +545,8 @@
 
     .valor-price .tag {
       display: inline-block;
-      background: var(--red);
-      color: #fff;
+      background: var(--brand);
+      color: var(--text);
       border-radius: 6px;
       padding: 5px 10px;
       font-size: 11px;
@@ -543,11 +559,11 @@
       font-family: var(--font-display);
       font-size: 92px;
       line-height: 0.9;
-      color: #fff;
+      color: var(--text);
     }
 
     .valor-price .por span {
-      color: var(--red);
+      color: var(--brand);
     }
 
     .valor-save {
@@ -561,13 +577,13 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 16px;
-      background: rgba(0,0,0,0.22);
+      background: var(--bg);
     }
 
     .valor-save-item .num {
       font-family: var(--font-display);
       font-size: 34px;
-      color: var(--red);
+      color: var(--brand);
       line-height: 1;
     }
 
@@ -600,7 +616,7 @@
       transform: translateX(-50%);
       width: 500px;
       height: 300px;
-      background: radial-gradient(ellipse, var(--red-glow) 0%, transparent 70%);
+      background: radial-gradient(ellipse, var(--brand-glow) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -622,12 +638,12 @@
     .oferta-por {
       font-family: var(--font-display);
       font-size: clamp(72px, 14vw, 120px);
-      color: #fff;
+      color: var(--text);
       line-height: 0.9;
       margin-bottom: 8px;
     }
 
-    .oferta-por span { color: var(--red); }
+    .oferta-por span { color: var(--brand); }
 
     .oferta-parcela {
       font-size: 14px;
@@ -637,8 +653,8 @@
 
     .cta-btn {
       display: inline-block;
-      background: var(--red);
-      color: #fff;
+      background: var(--green);
+      color: #ffffff;
       font-family: var(--font-body);
       font-size: 17px;
       font-weight: 500;
@@ -651,7 +667,7 @@
       letter-spacing: 0.01em;
     }
 
-    .cta-btn:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .cta-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
     .cta-btn:active { transform: scale(0.98); }
 
     .oferta-aviso {
@@ -715,7 +731,7 @@
       }
       .bonus-img img {
         border-left: none;
-        border-bottom: 1px solid var(--border-red);
+        border-bottom: 1px solid var(--border-brand);
       }
       .bonus-header {
         align-items: flex-start;
@@ -757,7 +773,7 @@
       <div class="hero-eyebrow">Oferta revelada às 15h — válida até 15h de amanhã</div>
 
       <h1>
-        <span class="line-red">COMBO</span>
+        <span class="line-brand">COMBO</span>
         <span class="line-white">BRUTAL</span>
       </h1>
 
@@ -790,7 +806,7 @@
               <span class="lab">seg</span>
             </div>
           </div>
-          <div class="timer-note">Oferta válida das 15h do dia 04/05 até 15h do dia 05/05</div>
+          <div class="timer-note">Oferta válida das 15h do dia 05/05 até 15h do dia 06/05</div>
         </div>
       </div>
     </div>
@@ -800,7 +816,7 @@
   <!-- ╔══════════════════════════════╗ -->
   <!-- ║  SEÇÃO: DOR                  ║ -->
   <!-- ╚══════════════════════════════╝ -->
-  <section class="dor" style="padding-top: 0;">
+  <section class="dor theme-light" style="padding-top: 72px;">
     <div class="container">
       <div class="section-label">O problema real</div>
       <h2>Resultados inconsistentes<br/>não são azar. São falta de método.</h2>
@@ -830,7 +846,7 @@
   <!-- ╔══════════════════════════════╗ -->
   <!-- ║  SEÇÃO: 3 CURSOS             ║ -->
   <!-- ╚══════════════════════════════╝ -->
-  <section class="cursos">
+  <section class="cursos theme-light">
     <div class="container">
       <div class="section-label">O que você leva</div>
       <h2>Três treinamentos.<br/>Um sistema completo.</h2>
@@ -896,7 +912,7 @@
   <!-- ╔══════════════════════════════╗ -->
   <!-- ║  SEÇÃO: BÔNUS                ║ -->
   <!-- ╚══════════════════════════════╝ -->
-  <section class="bonus">
+  <section class="bonus theme-light">
     <div class="container">
       <div class="section-label">Bônus exclusivo</div>
       <div class="bonus-header">
@@ -923,7 +939,7 @@
   <!-- ╔══════════════════════════════╗ -->
   <!-- ║  SEÇÃO: EMPILHAMENTO VALOR   ║ -->
   <!-- ╚══════════════════════════════╝ -->
-  <section class="valor">
+  <section class="valor theme-light">
     <div class="container">
       <div class="section-label">Empilhamento de valor</div>
       <div class="valor-box">
@@ -959,16 +975,16 @@
 
           <div class="valor-price">
             <span class="tag">Oferta de aniversário</span>
-            <div class="por"><span>R$</span> 147</div>
+            <div class="por"><span>R$</span> 197</div>
           </div>
 
           <div class="valor-save">
             <div class="valor-save-item">
-              <div class="num">R$ 1.141</div>
+              <div class="num">R$ 1.091</div>
               <div class="txt">de economia comprando hoje</div>
             </div>
             <div class="valor-save-item">
-              <div class="num">89% OFF</div>
+              <div class="num">85% OFF</div>
               <div class="txt">sobre o valor total do pacote</div>
             </div>
           </div>
@@ -987,13 +1003,13 @@
         <div class="oferta-eyebrow">Condição especial de aniversário — 7 anos SISV</div>
 
         <div class="oferta-de">Valor total: R$ 1.288</div>
-        <div class="oferta-por"><span>R$</span> 147</div>
+        <div class="oferta-por"><span>R$</span> 197</div>
         <div class="oferta-parcela">pagamento único · acesso imediato</div>
 
         <a href="https://pay.kiwify.com.br/t8TlXN3" class="cta-btn">Quero o Combo Brutal agora</a>
 
         <div class="oferta-aviso">
-          Válido das 15h de 04/05 até 15h de 05/05.<br/>
+          Válido das 15h de 05/05 até 15h de 06/05.<br/>
           Após esse prazo, a oferta sai do ar e não se repete.
         </div>
       </div>
@@ -1025,7 +1041,7 @@
 
   <!-- ─── TIMER SCRIPT ─── -->
   <script>
-    const endTime = new Date('2026-05-05T15:00:00-03:00');
+    const endTime = new Date('2026-05-06T15:00:00-03:00');
 
     function pad(n) { return String(n).padStart(2, '0'); }
 
